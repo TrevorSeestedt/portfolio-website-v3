@@ -19,12 +19,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var s=localStorage.getItem('theme');var dark=s?s==='dark':true;document.documentElement.classList.toggle('dark',dark);document.body.classList.toggle('dark-mode',dark);})();`,
+          }}
+        />
         <div className="app-shell">
           <Navbar />
 
-          <main className="container page-content">{children}</main>
+          <main className="container">{children}</main>
 
           <footer className="footer">
             <div className="footer-container">
@@ -40,7 +45,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </a>
                 <a
                   className="social-link"
-                  href="https://www.linkedin.com/in/trevorseestedt"
+                  href="https://www.linkedin.com/in/trevor-seestedt/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"

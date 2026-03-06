@@ -8,17 +8,17 @@ import sunIcon from '../app/assets/sun.png';
 const STORAGE_KEY = 'theme';
 
 function applyTheme(isDark: boolean) {
+  document.documentElement.classList.toggle('dark', isDark);
   document.body.classList.toggle('dark-mode', isDark);
   localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
 }
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
-    const next = stored ? stored === 'dark' : prefersDark;
+    const next = stored ? stored === 'dark' : true;
 
     setIsDark(next);
     applyTheme(next);

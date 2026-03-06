@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import profileImg from '@/app/assets/profile.png';
+
 import ThemeToggle from './ThemeToggle';
 
 const links = [
@@ -34,6 +36,9 @@ export default function Navbar() {
 
         <div className="nav-right">
           <ThemeToggle />
+          <span className="nav-icon" aria-hidden="true">
+            <img className="profile-icon" src={profileImg.src} alt="" />
+          </span>
         </div>
       </nav>
     </header>
