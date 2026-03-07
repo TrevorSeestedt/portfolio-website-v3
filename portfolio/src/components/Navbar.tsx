@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import profileImg from '@/app/assets/profile.png';
-
 import ThemeToggle from './ThemeToggle';
+
+import ProfileDropdown from './Profile';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -36,9 +36,7 @@ export default function Navbar() {
 
         <div className="nav-right">
           <ThemeToggle />
-          <span className="nav-icon" aria-hidden="true">
-            <img className="profile-icon" src={profileImg.src} alt="" />
-          </span>
+          <ProfileDropdown />
         </div>
       </nav>
     </header>
