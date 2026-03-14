@@ -52,21 +52,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 >
                   <img className="social-icon" src={linkedinIcon.src} alt="" aria-hidden="true" />
                 </a>
-                <a
-                  className="social-link"
-                  href="mailto:seestedttrevor@gmail.com"
-                  aria-label="Email"
-                >
-                  <img className="social-icon" src={emailIcon.src} alt="" aria-hidden="true" />
-                </a>
-                <a className="social-link" href="tel:6103226475" aria-label="Telephone">
-                  <img
-                    className="social-icon"
-                    src={telephoneIcon.src}
-                    alt=""
-                    aria-hidden="true"
-                  />
-                </a>
               </div>
 
               <div className="copyright">© Trevor Seestedt. All rights reserved.</div>

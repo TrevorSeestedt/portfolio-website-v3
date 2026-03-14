@@ -190,7 +190,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2.5rem;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -477,6 +477,130 @@ body.dark-mode .copyright {
 body.dark-mode .social-icon {
   filter: brightness(0) invert(1);
   opacity: 80%;
+}
+
+/* Home intro - hide nav/footer during intro, fade in when done */
+body.home-intro-active .navbar,
+body.home-intro-active .footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar,
+.footer {
+  transition: opacity 0.6s ease;
+}
+
+/* Home intro overlay - background only, fades out */
+.home-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #ffffff;
+  transition: opacity 0.6s ease;
+}
+
+.home-intro-overlay-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.dark-mode .home-intro-overlay {
+  background-color: #000000;
+}
+
+/* Home main content */
+.home-intro-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background-color: currentColor;
+  vertical-align: text-bottom;
+  animation: homeIntroBlink 1s step-end infinite;
+}
+
+@keyframes homeIntroBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.home-intro-main {
+  padding-top: calc(clamp(84px, 14vh, 130px) - 60px);
+}
+
+.home-intro-hero {
+  text-align: center;
+  color: inherit;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.home-intro-hero--center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  width: min(calc(100vw - 40px), 960px);
+  margin: 0;
+}
+
+.home-intro-hero--header {
+  position: fixed;
+  left: 50%;
+  top: clamp(84px, 14vh, 130px);
+  transform: translateX(-50%);
+  z-index: 10001;
+  width: min(calc(100vw - 40px), 960px);
+  margin: 0;
+  transition: top 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-intro-line1 {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.home-intro-line1-fadeout {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.home-intro-line2 {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(1.05rem, 3vw, 1.5rem);
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.home-intro-line2-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .home-intro-hero--header {
+    top: 88px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-intro-hero--center,
+  .home-intro-hero--header {
+    width: min(calc(100vw - 32px), 960px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
