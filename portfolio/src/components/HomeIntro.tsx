@@ -23,6 +23,21 @@ type IntroPhase =
   | 'contentReveal'
   | 'done';
 
+const heroBase = 'text-center text-inherit w-full max-w-[960px] mx-auto';
+
+const heroCenter = [
+  'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
+  'z-[10001] w-[min(calc(100vw-40px),960px)] m-0',
+  'max-md:w-[min(calc(100vw-32px),960px)]',
+].join(' ');
+
+const heroHeader = [
+  'fixed left-1/2 top-[clamp(84px,14vh,130px)] -translate-x-1/2',
+  'z-[10001] w-[min(calc(100vw-40px),960px)] m-0',
+  'transition-[top,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]',
+  'max-sm:top-[88px] max-md:w-[min(calc(100vw-32px),960px)]',
+].join(' ');
+
 export default function HomeIntro() {
   const [phase, setPhase] = useState<IntroPhase>('idle');
   const [activeText, setActiveText] = useState(HELLO_TEXT);
@@ -118,30 +133,38 @@ export default function HomeIntro() {
 
   const heroStageClass =
     phase === 'moveToHeader' || phase === 'contentReveal'
-      ? 'home-intro-hero--header'
+      ? heroHeader
       : phase === 'done'
         ? ''
-        : 'home-intro-hero--center';
+        : heroCenter;
 
   return (
     <>
       {overlayVisible && (
         <div
-          className={`home-intro-overlay ${phase === 'contentReveal' ? 'home-intro-overlay-exit' : ''}`}
+          className={`fixed inset-0 z-[10000] bg-white dark:bg-black transition-opacity duration-[600ms] ease-in-out ${
+            phase === 'contentReveal' ? 'opacity-0 pointer-events-none' : ''
+          }`}
           aria-hidden="true"
         />
       )}
 
-      <section className="home-intro-main" aria-label="Home">
-        <div className={`home-intro-hero ${heroStageClass}`}>
+      <section className="pt-[calc(clamp(84px,14vh,130px)-60px)]" aria-label="Home">
+        <div className={`${heroBase} ${heroStageClass}`}>
           <h1
-            className={`home-intro-line1 ${phase === 'helloFadeOut' ? 'home-intro-line1-fadeout' : ''}`}
+            className={`font-sans text-[clamp(1.5rem,5vw,2.5rem)] font-normal mb-2 leading-[1.4] ${
+              phase === 'helloFadeOut' ? 'opacity-0 transition-opacity duration-[350ms] ease-in-out' : ''
+            }`}
           >
             {displayText}
-            {showCursor && <span className="home-intro-cursor" />}
+            {showCursor && (
+              <span className="inline-block w-0.5 h-[1em] ml-0.5 bg-current align-text-bottom animate-blink" />
+            )}
           </h1>
           <h2
-            className={`home-intro-line2 ${showSecondLine ? 'home-intro-line2-visible' : ''}`}
+            className={`font-sans text-[clamp(1.05rem,3vw,1.5rem)] font-light opacity-0 translate-y-3 transition-[opacity,transform] duration-[600ms] ease-in-out ${
+              showSecondLine ? '!opacity-100 !translate-y-0' : ''
+            }`}
           >
             Hi, I am Trevor Seestedt
           </h2>

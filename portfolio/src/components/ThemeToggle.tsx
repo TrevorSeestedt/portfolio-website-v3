@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className="group opacity-95 bg-transparent border-none cursor-pointer p-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center justify-center w-10 h-10 hover:opacity-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.06]"
       aria-label="Toggle theme"
       onClick={() => {
         setIsDark((prev) => {
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
       }}
     >
       <img
-        className="theme-icon"
+        className="w-[18px] h-[18px] block transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80 group-hover:opacity-100 dark:brightness-0 dark:invert"
         src={(isDark ? sunIcon : moonIcon).src}
         alt=""
         aria-hidden="true"
@@ -46,4 +46,3 @@ export default function ThemeToggle() {
     </button>
   );
 }
-
