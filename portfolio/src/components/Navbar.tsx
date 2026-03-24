@@ -17,7 +17,7 @@ const navLinkBase = [
   'font-sans font-normal text-base no-underline text-black dark:text-white',
   'py-3 px-5 max-sm:py-[0.55rem] max-sm:px-[0.8rem] max-sm:text-[0.9rem]',
   'rounded-lg relative transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]',
-  'hover:bg-black/[0.06] dark:hover:bg-white/[0.06]',
+  'hover:bg-black/[0.06] dark:hover:bg-white/[0.12]',
   "after:content-[''] after:absolute after:bottom-2 after:max-sm:bottom-1 after:left-1/2",
   'after:w-0 after:h-px after:bg-black dark:after:bg-white',
   'after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-[cubic-bezier(0.4,0,0.2,1)]',

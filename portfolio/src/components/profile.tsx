@@ -24,7 +24,7 @@ export default function ProfileDropdown() {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group cursor-pointer opacity-95 bg-transparent border-none p-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center justify-center w-10 h-10 hover:opacity-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.06] focus:outline-none"
+        className="group cursor-pointer opacity-95 bg-transparent border-none p-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center justify-center w-10 h-10 hover:opacity-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.12] focus:outline-none"
         aria-label="Toggle profile menu"
         aria-expanded={isOpen}
       >
@@ -40,21 +40,21 @@ export default function ProfileDropdown() {
           <div className="flex flex-col gap-1">
             <Link
               href="/login"
-              className="block font-sans text-[0.95rem] font-normal text-black dark:text-white no-underline py-3 px-4 rounded-lg transition-all duration-200 text-center hover:bg-black/[0.06] dark:hover:bg-white/[0.06]"
+              className="block font-sans text-[0.95rem] font-normal text-black dark:text-white no-underline py-3 px-4 rounded-lg transition-all duration-200 text-center hover:bg-black/[0.06] dark:hover:bg-white/[0.12]"
               onClick={() => setIsOpen(false)}
             >
               Login
             </Link>
             <Link
               href="/signup"
-              className="block font-sans text-[0.95rem] font-normal text-black dark:text-white no-underline py-3 px-4 rounded-lg transition-all duration-200 text-center hover:bg-black/[0.06] dark:hover:bg-white/[0.06]"
+              className="block font-sans text-[0.95rem] font-normal text-black dark:text-white no-underline py-3 px-4 rounded-lg transition-all duration-200 text-center hover:bg-black/[0.06] dark:hover:bg-white/[0.12]"
               onClick={() => setIsOpen(false)}
             >
               Sign up
             </Link>
             <button
               type="button"
-              className="w-full font-sans text-[0.95rem] font-normal text-black dark:text-white bg-transparent border border-black/15 dark:border-white/20 py-3 px-4 rounded-lg cursor-pointer transition-all duration-200 mt-1 hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+              className="w-full font-sans text-[0.95rem] font-normal text-black dark:text-white bg-transparent border border-black/15 dark:border-white/20 py-3 px-4 rounded-lg cursor-pointer transition-all duration-200 mt-1 hover:bg-black/[0.04] dark:hover:bg-white/[0.12]"
             >
               Continue with Google
             </button>

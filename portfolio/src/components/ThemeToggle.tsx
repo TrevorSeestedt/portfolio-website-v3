@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="group opacity-95 bg-transparent border-none cursor-pointer p-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center justify-center w-10 h-10 hover:opacity-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.06]"
+      className="group opacity-95 bg-transparent border-none cursor-pointer p-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center justify-center w-10 h-10 hover:opacity-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.12]"
       aria-label="Toggle theme"
       onClick={() => {
         setIsDark((prev) => {

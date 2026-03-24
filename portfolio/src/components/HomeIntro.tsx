@@ -33,10 +33,10 @@ const heroCenter = [
 ].join(' ');
 
 const heroHeader = [
-  'fixed left-1/2 top-[clamp(84px,14vh,130px)] -translate-x-1/2 -translate-y-1/2',
+  'fixed left-1/2 top-[130px] -translate-x-1/2 -translate-y-1/2',
   'z-[10001] w-[min(calc(100vw-40px),960px)] m-0',
   'transition-[top,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]',
-  'max-sm:top-[88px] max-md:w-[min(calc(100vw-32px),960px)]',
+  'max-md:w-[min(calc(100vw-32px),960px)]', // Removed max-sm:top-[88px]
 ].join(' ');
 
 const heroDone = '-translate-y-1/2';
@@ -152,7 +152,7 @@ export default function HomeIntro() {
         />
       )}
 
-      <section className="pt-[calc(clamp(84px,14vh,130px)-60px)]" aria-label="Home">
+      <section className="pt-[70px] min-h-[180px]" aria-label="Home">
         <div className={`${heroBase} ${heroStageClass}`}>
           <h1
             className={`font-sans text-[clamp(1.5rem,5vw,2.5rem)] font-normal mb-2 leading-[1.4] ${
