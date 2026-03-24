@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import ThemeToggle from './ThemeToggle';
-import ProfileDropdown from './Profile';
+import ProfileDropdown from './profile';
 
 const links = [
   { href: '/', label: 'Home' },
